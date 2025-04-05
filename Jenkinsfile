@@ -39,13 +39,6 @@ pipeline {
                 sh "mvn package"
             }
         }
-        stage('Publish Artifacts') {
-            steps {
-                withMaven(globalMavenSettingsConfig: 'maven-settings', jdk: 'jdk', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-                        sh "mvn deploy"
-                }
-            }
-        }
         stage('Docker Build & Tag') {
             steps {
                 script{
