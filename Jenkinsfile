@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/younesaa/full_cicd_project.git'
+                git credentialsId: 'github_access', branch: 'main', url: 'https://github.com/younesaa/full_cicd_project.git'
             }
         }
         stage('Compile') {
